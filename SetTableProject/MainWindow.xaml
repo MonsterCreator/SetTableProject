@@ -1,0 +1,78 @@
+﻿<Window x:Class="SetTableProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SetTableProject"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl x:Name="UserTab" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="Главная">
+                <Grid Background="#FFE5E5E5">
+                    <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,306,0,0"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="customersTab" Header="Пользователи">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="166*"/>
+                        <ColumnDefinition Width="13*"/>
+                        <ColumnDefinition Width="615*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="cutomersDT" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,264,0" Grid.ColumnSpan="3"/>
+                    <Button x:Name="AddCustomerButton" Grid.Column="2" Content="AddUser" HorizontalAlignment="Left" Margin="356,3,0,0" VerticalAlignment="Top" Width="249" Click="AddCustomerButton_Click"/>
+                    <Button x:Name="RemoveCustomerButton" Grid.Column="2" Content="RemoveUser" HorizontalAlignment="Left" Margin="356,126,0,0" VerticalAlignment="Top" Width="249" Click="RemoveCustomerButton_Click"/>
+                    <TextBox x:Name="CustomerIdTextBox" Grid.Column="2" HorizontalAlignment="Left" Margin="356,151,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Height="26"/>
+                    <Label Grid.Column="2" Content="UserID" HorizontalAlignment="Left" Margin="481,151,0,0" VerticalAlignment="Top" Height="26" Width="70"/>
+                    <TextBox x:Name="CustomerNameTextBox" Grid.Column="2" HorizontalAlignment="Left" Margin="356,28,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="CustomerLastNameTextBox" Grid.Column="2" HorizontalAlignment="Left" Margin="356,51,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="CustomerEmailTextBox" Grid.Column="2" HorizontalAlignment="Left" Margin="356,74,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="CustomerStatusTextBox" Grid.Column="2" HorizontalAlignment="Left" Margin="356,97,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <Label Grid.Column="2" Content="Имя" HorizontalAlignment="Left" Margin="481,24,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Label Grid.Column="2" Content="Фамилия" HorizontalAlignment="Left" Margin="481,47,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Label Grid.Column="2" Content="Email" HorizontalAlignment="Left" Margin="481,70,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Label Grid.Column="2" Content="Статус" HorizontalAlignment="Left" Margin="481,93,0,0" VerticalAlignment="Top" Width="124"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="itemsTab" Header="Товары">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="453"/>
+                        <ColumnDefinition Width="341"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="ItemsDT" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                    <Button x:Name="ItemAddButton" Grid.Column="1" Content="Добавить" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="321" Click="ItemAddButton_Click"/>
+                    <Button x:Name="ItemDeleteButton" Grid.Column="1" Content="Удалить" HorizontalAlignment="Center" Margin="0,60,0,0" VerticalAlignment="Top" Width="321" Click="ItemDeleteButton_Click"/>
+                    <Button x:Name="ItemEditButton" Grid.Column="1" Content="Изменить" HorizontalAlignment="Center" Margin="0,35,0,0" VerticalAlignment="Top" Width="321" Click="ItemEditButton_Click"/>
+                    <TextBox x:Name="ItemIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Margin="10,85,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="236" Height="20"/>
+                    <TextBox x:Name="ItemNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="236" Height="20"/>
+                    <TextBox x:Name="ItemPriceTextBox" Grid.Column="1" HorizontalAlignment="Left" Margin="10,135,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="236" Height="20"/>
+                    <Label Grid.Column="1" Content="Id" HorizontalAlignment="Left" Margin="251,82,0,0" VerticalAlignment="Top"/>
+                    <Label Grid.Column="1" Content="Name" HorizontalAlignment="Left" Margin="251,107,0,0" VerticalAlignment="Top"/>
+                    <Label Grid.Column="1" Content="Price" HorizontalAlignment="Left" Margin="251,132,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="ordersTab" Header="Заказы">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="173*"/>
+                        <ColumnDefinition Width="621*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="OrdersDT" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,269,0" Grid.ColumnSpan="2"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="registersTab" Header="Запросы регистрации">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="13*"/>
+                        <ColumnDefinition Width="527*"/>
+                        <ColumnDefinition Width="254*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="registersDT" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,10" Grid.ColumnSpan="2"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
